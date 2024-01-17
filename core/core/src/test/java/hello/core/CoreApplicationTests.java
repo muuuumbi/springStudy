@@ -11,8 +11,8 @@ class CoreApplicationTests {
 
     //필드 주입 사용해도 되는 곳
     //이렇게 하면 스프링 컨테이너에 스프링 빈 다 올린 다음에 얘를 바로 테스트 할 수 있기 때문에 편함.
-    @Autowired
-    OrderService orderService;
+//    @Autowired
+//    OrderService orderService;
 
 //	@Test
 //	void contextLoads() {

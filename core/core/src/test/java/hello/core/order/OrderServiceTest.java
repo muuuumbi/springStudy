@@ -42,4 +42,5 @@ public class OrderServiceTest {
 //        orderService.createOrder(1L, "itemA", 10000);
 //        //->member 없어서 nullpointexception
 //    }
+
 }

@@ -3,10 +3,12 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor //생성자 생성해줌
 public class OrderServiceImpl implements OrderService{
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
     //할인 정책 변경을 하려면 코드를 고쳐야 함. DIP위반, OCP위반
@@ -20,19 +22,21 @@ public class OrderServiceImpl implements OrderService{
 //    @Autowired private MemberRepository memberRepository;
 //    @Autowired private DiscountPolicy discountPolicy;//구현체가 없는데 어떻게 실행?? 구현 객체를 대신 생성해서 주입해주는 것이 필요
 
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        System.out.println("첫번째 호출 1. OrderServiceImpl.OrderServiceImpl");
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired //생성자 하나면 생략 가능
+    //@RequiredArgsConstructor 로 대체
+//    public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("fixDiscountPolicy")이나 @MainDiscountPolicy 사용 DiscountPolicy discountPolicy) {
+//        System.out.println("첫번째 호출 1. OrderServiceImpl.OrderServiceImpl");
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+    //fixDiscountPolicy로 이름 지정해주면 오류가 생기지 않음
+//    }
 
     //일반메서드 주입
-    @Autowired
-    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy){
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
+//    @Autowired
+//    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy){
+//        this.memberRepository = memberRepository;
+//        this.discountPolicy = discountPolicy;
+//    }
 
     //수정자
 //    @Autowired(required = false)

@@ -1,10 +1,16 @@
 package hello.core.discount;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.member.Grade;
 import hello.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
+//@Qualifier("mainDiscountPolicy")
+@MainDiscountPolicy //만든애노테이션
+//@Primary //같은 타입이 조회돼도 primary가 지정된 빈이 조회됨
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPercent = 10;
