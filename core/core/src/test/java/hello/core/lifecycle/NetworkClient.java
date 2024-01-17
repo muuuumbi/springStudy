@@ -1,5 +1,7 @@
 package hello.core.lifecycle;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -40,11 +42,24 @@ public class NetworkClient{
 //        disconnect();
 //    }
 
+    //2. 빈 설정 정보로 등록해 사용하기
+//    public void init(){
+//        connect();
+//        call("초기화 연결 메시지");
+//    }
+//
+//    public void close(){
+//        disconnect();
+//    }
+
+    //3. 애노테이션 사용하기
+    @PostConstruct
     public void init(){
         connect();
         call("초기화 연결 메시지");
     }
 
+    @PreDestroy
     public void close(){
         disconnect();
     }
