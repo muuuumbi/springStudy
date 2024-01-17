@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService{
 //    @Autowired
 //    public void init(MemberRepository memberRepository, DiscountPolicy discountPolicy){
 //        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
+//        this.discountPolicy = discountPolic;
 //    }
 
     //수정자
