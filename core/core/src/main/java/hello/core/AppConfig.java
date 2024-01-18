@@ -35,33 +35,33 @@ public class AppConfig {
     //call AppConfig.orderService
 
     //자동의존관계주입
-    @Autowired
-    MemberRepository memberRepository;
-    @Bean
-    public MemberService memberService(){
-        System.out.println("call AppConfig.memberService");
-        return new MemberServiceImpl(memberRepository());
-    }
+//    @Autowired
+//    MemberRepository memberRepository;
+//    @Bean
+//    public MemberService memberService(){
+//        System.out.println("call AppConfig.memberService");
+//        return new MemberServiceImpl(memberRepository());
+//    }
 
-    @Bean
-    public MemberRepository memberRepository(){
-        System.out.println("call AppConfig.memberRepository");
-        return new MemoryMemberRepository();
-    }
+//    @Bean
+//    public MemberRepository memberRepository(){
+//        System.out.println("call AppConfig.memberRepository");
+//        return new MemoryMemberRepository();
+//    }
 
-    @Bean
-    public OrderService orderService(){
-        System.out.println("call AppConfig.orderService");
-        //의존관계 필드 주입 예시 위해 잠시 주석 처리
-        return new OrderServiceImpl(memberRepository(), discountPolicy());
-//        return null;
-    }
+//    @Bean
+//    public OrderService orderService(){
+//        System.out.println("call AppConfig.orderService");
+//        //의존관계 필드 주입 예시 위해 잠시 주석 처리
+//        return new OrderServiceImpl(memberRepository(), discountPolicy());
+////        return null;
+//    }
 
-    @Bean
-    public DiscountPolicy discountPolicy(){
-//        return new FixDiscountPolicy();
-        return new RateDiscountPolicy(); //할인정책 변경
-    }
+//    @Bean
+//    public DiscountPolicy discountPolicy(){
+////        return new FixDiscountPolicy();
+//        return new RateDiscountPolicy(); //할인정책 변경
+//    }
 
 
 }

@@ -2,6 +2,7 @@ package hello.core.scope;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.inject.Provider;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.ObjectProvider;
@@ -49,7 +50,7 @@ public class SingletonWithProtorypeTest1 {
 
         //Provider로 해결
         @Autowired
-        private ObjectProvider<PrototypeBean> prototypeBeanProvider; //간단하게 필드주입으로 테스트
+        private Provider<PrototypeBean> prototypeBeanProvider; //간단하게 필드주입으로 테스트
 
 //        @Autowired
 //        ClientBean(PrototypeBean prototypeBean) {
@@ -57,7 +58,7 @@ public class SingletonWithProtorypeTest1 {
 //        }
 
         public int logic(){
-            PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
+            PrototypeBean prototypeBean = prototypeBeanProvider.get();
             prototypeBean.addCount(); //이미 생성돼있는 것을 사용
             int count = prototypeBean.getCount();
             return count;
