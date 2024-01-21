@@ -13,7 +13,8 @@ public class Order {
     @Column(name = "ORDER_ID")
     private Long id;
     @Column(name = "MEMBER_ID")
-    private Long memberId;
+    private Long memberId;//객체지향적이지 않음
+    private Member member;
     private LocalDateTime orderDate;
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
