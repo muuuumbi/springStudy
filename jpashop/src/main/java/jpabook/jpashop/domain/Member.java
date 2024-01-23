@@ -1,9 +1,9 @@
 package jpabook.jpashop.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Member {
     @Id
@@ -14,6 +14,12 @@ public class Member {
     private String city;
     private String street;
     private String zipcode;
+
+    @OneToMany(mappedBy = "MEMBER_ID")
+    private List<Order> orders = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 
     public Long getId() {
         return id;
