@@ -11,14 +11,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Goal {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToOne
     @JoinColumn(name = "mycard_id")
     private MyCard myCard;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "tinyint(1)")
     private boolean achieve;
 
     @Column(nullable = false)

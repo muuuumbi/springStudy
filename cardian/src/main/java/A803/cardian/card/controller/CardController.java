@@ -13,6 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 public class CardController {
+
+//    @GetMapping("/transaction")
+//    public ResponseEntity<String> mycardtest{
+//        String json = "";
+//        return new ResponseEntity<>(json, HttpStatus.OK)
+//    }
+
     @GetMapping("/test")
     public ResponseEntity<String> test(){
         String json = "{\n" +
@@ -52,4 +59,5 @@ public class CardController {
                 "}";
         return new ResponseEntity<>(json, HttpStatus.OK);
     }
+
 }

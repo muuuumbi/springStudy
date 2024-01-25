@@ -1,27 +1,26 @@
-package A803.cardian.settlement.domain;
+package A803.cardian.associate.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class SettlementStandard {
+public class Associate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "associate_id")
+    private Integer Id;
 
     @Column(nullable = false)
-    private int salary;
+    private String name;
 
     @Column(nullable = false)
-    private int low;
+    private String image;
 
     @Column(nullable = false)
-    private int high;
-
-    @Column(nullable = false)
-    private int limit;
+    private String categoryCode;
 }

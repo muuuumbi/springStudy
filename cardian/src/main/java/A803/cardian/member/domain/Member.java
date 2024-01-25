@@ -1,5 +1,6 @@
 package A803.cardian.member.domain;
 
+import A803.cardian.card.domain.FavoriteCard;
 import A803.cardian.card.domain.MyCard;
 import A803.cardian.member.domain.embbeded.PhoneNumber;
 import A803.cardian.statistic.domain.CategoryMonthConsume;
@@ -18,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private Integer id;
 
@@ -45,9 +46,11 @@ public class Member {
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
     private List<MonthlyCardStatistic> monthlyCardStatistics = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
-    private List<MyCard> myCards = new ArrayList<>();
+//    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+//    private List<MyCard> myCards = new ArrayList<>();
 
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
+    private List<FavoriteCard> favoriteCards = new ArrayList<>();
     @Builder
     public Member(String name,
                   LocalDate birth,
